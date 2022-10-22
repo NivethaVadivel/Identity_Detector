@@ -3,7 +3,6 @@ import numpy as np
 from PIL import Image
 import os
 
-
 path = 'dataset'
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 detector = cv2.CascadeClassifier("face.xml")
@@ -25,18 +24,10 @@ def getImagesAndLabels(path):
     return faceSamples, ids
 
 
-<<<<<<< HEAD
 print("\nTraining faces. It will take a few seconds, Wait...")
-=======
-print("\n [INFO] Training faces. It will take a few seconds. Wait ...")
->>>>>>> 9a1a2166ec72b32e87bedf1a9112b7e7cc2dd0b9
 faces, ids = getImagesAndLabels(path)
 recognizer.train(faces, np.array(ids))
 # Save the model into trainer/trainer.yml
 recognizer.write('trainer/trainer.yml')
 # Print the numer of faces trained and end program
-<<<<<<< HEAD
 print("\n{0} faces trained.\nExiting Program".format(len(np.unique(ids))))
-=======
-print("\n [INFO] {0} faces trained. Exiting Program".format(len(np.unique(ids))))
->>>>>>> 9a1a2166ec72b32e87bedf1a9112b7e7cc2dd0b9
